@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <nav id="menu">
+        <button><img src="burger.png"></button>
+        <ul>
+            <li><a href="#">Rubrique 1</a></li>
+            <li><a href="#">Rubrique 2 avec un nom long</a></li>
+            <li><a href="#">Rubrique 3</a></li>
+            <li><a href="#">Rubrique 4</a></li>
+            <li><a href="#">Rubrique 5</a></li>
+        </ul>
+    </nav>
+
+    <div class="conteneur">
+        <div class="colonne demi seuil-500">
+            <h2>Colonne A</h2>
+            <p>Lorem ipsum...</p>
+        </div>
+        <div class="colonne demi seuil-500">
+            <h2>Colonne B</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad sapiente illo nisi perspiciatis deserunt autem aut iste, dolorem doloribus doloremque, modi dignissimos impedit natus. Earum possimus necessitatibus atque enim sequi.</p>
+        </div>
+    </div>
+
+    <div class="conteneur">
+        <div class="colonne tiers seuil-700">
+            <h2>Colonne C</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad sapiente illo nisi perspiciatis deserunt autem aut iste, dolorem doloribus doloremque, modi dignissimos impedit natus. Earum possimus necessitatibus atque enim sequi.</p>
+        </div>
+        <div class="colonne tiers seuil-700">
+            <h2>Colonne D</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad sapiente illo nisi perspiciatis deserunt autem aut iste, dolorem doloribus doloremque, modi dignissimos impedit natus. Earum possimus necessitatibus atque enim sequi.</p>
+        </div>
+        <div class="colonne tiers seuil-700">
+            <h2>Colonne E</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad sapiente illo nisi perspiciatis deserunt autem aut iste, dolorem doloribus doloremque, modi dignissimos impedit natus. Earum possimus necessitatibus atque enim sequi.</p>
+        </div>
+    </div>
+
+    <script>
+        /* ANCIENNE VERSION - Gérait la classe "visible" spécifiquement sur l'élément ul
+        document.querySelector("#menu button").onclick = function() {
+            this.nextElementSibling.classList.toggle("visible");
+            
+
+            "this" : fait référence au bouton en lui-même, car on se trouve dans une fonction (ou méthode) qui "lui appartient".
+
+            "nextElementSibling" : propriété de tous les éléments HTML, désignant l'éventuel élément suivant (dans le même parent)
+
+            "classList.toggle()" : permet d'appliquer automatiquement classList.add() ou classList.remove() selon le cas - basculement entre présence et absence d'une classe.
+            
+            version classique : document.querySelector("#menu ul").classList.toggle("visible");
+            
+        }
+        */
+
+        let menu = document.querySelector("#menu");
+
+        menu.querySelector("button").onclick = function() {
+            menu.classList.toggle("visible");
+        }
+
+    </script>
+    
+</body>
+</html>

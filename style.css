@@ -1,0 +1,113 @@
+body {
+    background-color: black;
+    color:white;
+}
+
+.conteneur {
+    display:flex;
+    gap:20px;
+}
+
+/* Classe pour une colonne occupant la moitié de la fenêtre dans la largeur, dans une grande fenêtre */
+.demi {
+    width:calc(50% - 10px);
+}
+
+/* Classe pour une colonne occupant le tiers de la fenêtre dans la largeur, dans une grande fenêtre */
+.tiers {
+    width:33.33%;
+}
+
+
+/***** MENU ******/
+
+#menu {
+  background-color:chocolate;
+    height:70px;
+    display:flex;
+    align-items:center;
+}
+
+#menu ul {
+    display:flex;
+    justify-content:center;
+    width:100%;
+    margin:0;
+    padding:0;
+    list-style: none;
+    gap:40px;
+    font-size:22px;
+}
+
+#menu a {
+    color:white;
+    text-decoration:none;
+}
+
+/* Bouton "burger" */
+#menu button {
+    width:50px;
+    flex-shrink:0;
+    background-color:transparent;
+    border:none;
+    display:none; /* Masqué par défaut, n'apparaît que sous le seuil des 900px */
+    transition:margin-top 0.5s;
+}
+
+#menu button img {
+    width:100%;
+}
+
+/* Seuil des 900px : ne concerne que le menu */
+@media screen and (max-width:900px) {
+
+    #menu {
+        height:auto;
+        /* Pour annuler la hauteur forcée que l'on a donné par défaut au menu (et lui permettre d'afficher toutes les rubriques correctement) */
+        align-items: flex-start; /* Plus besoin de centrage vertical, tout peut être calé en haut du menu */
+    }
+
+    #menu ul {
+        display:none; /* Le contenu du menu est masqué par défaut... */
+        flex-direction: column; /* ...et lorsqu'il sera affiché, il doit se présenter verticalement */
+        margin:20px 0px; /* 2 valeurs : top & bottom puis left & right */
+    }
+
+    #menu.visible ul {
+        display:flex; /* Pour annuler display:none donc le masquage */
+    }
+
+    #menu button {
+        display:block; /* Pour annuler display:none donc le masquage */
+    }
+
+    #menu.visible button {
+        margin-top:15px;
+    }
+
+}
+
+
+/* Bloc de règles qui ne s'appliqueront que si le support (la fenêtre) fait 700px de large ou moins */
+@media screen and (max-width:700px) {
+    
+    .conteneur {
+       /* flex-direction: column; */
+        flex-wrap: wrap; /* Rendre possible plusieurs "rangées" d'éléments dans le conteneur */
+
+       /* + A FAIRE : résoudre incohérence marges */
+    }
+
+    .seuil-700 {
+        width:100%; /* Les colonnes portant cette classe occupent toute la largeur du conteneur à partir du seuil de 700px */
+    }
+
+}
+
+@media screen and (max-width:500px) {
+
+    .seuil-500 {
+        width:100%;
+    }
+
+}
